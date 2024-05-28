@@ -4,7 +4,8 @@
 
 /*This is for main body so I can change everything*/
 body{
-    margin-top: 100px;
+    top: 100px;
+ 
     font-family: "Quicksand", sans-serif;
     background-color: lightgray;
     text-align: center;
@@ -12,7 +13,6 @@ body{
     user-select: none;
     position: relative;
     text-decoration: none;
-    margin: 100;
     padding: 0;
     display: grid;
     place-items: center;
@@ -41,7 +41,7 @@ body{
 }
 
 .right {
-    margin-top: 10%;
+    margin-top: 100px;
 }
 
 /* This is to outline the text and make it more readable*/
@@ -62,8 +62,7 @@ body{
 
 
 .teller-image {
-    position: absolute;
-    margin-left: -180px;
+ 
     margin-top: 50px;
 }
 
@@ -79,8 +78,8 @@ body{
 
 .upgrade {
     display: flex;
-    text-align: right;
     align-items: center;
+    justify-content: space-between;
     width: 330px;
     height: 60px;
     border: 5px solid white;
@@ -90,11 +89,6 @@ body{
     border-radius: 5px;
     position: relative;
     margin-bottom: 20px;
-
-}
-
-.right-section {
-    padding-left: ;
 
 }
 
@@ -162,6 +156,12 @@ body{
     justify-content: center;
     font-weight: bold;
     font-size: 22px;
+}
+
+.util-buttons {
+    position: absolute;
+    top: -70px;
+    right: 15px;
 }
 
 .fade-up {

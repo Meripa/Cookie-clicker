@@ -99,6 +99,14 @@ function buyUpgrade(upgrade) {
     }
 }
 
+function save () {
+
+}
+
+function load () {
+    
+}
+
 setInterval(() => {
 parsedTeller += tps / 10
 teller.innerHTML = Math.round(parsedTeller)
