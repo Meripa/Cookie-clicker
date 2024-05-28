@@ -29,7 +29,7 @@ const upgrades = [
         parsedIncrease: parseFloat(document.querySelector(".pickaxe-increase").innerHTML),
         level: document.querySelector(".pickaxe-level"),
         tellerMultiplier: 1.025,
-        costMultiplier: 1.12,
+        costMultiplier: 1.115,
     },
     {
         name: 'miner',
@@ -39,7 +39,7 @@ const upgrades = [
         parsedIncrease: parseFloat(document.querySelector(".miner-increase").innerHTML),
         level: document.querySelector(".miner-level"),
         tellerMultiplier: 1.025,
-        costMultiplier: 1.12,
+        costMultiplier: 1.11,
     },
     {
         name: 'factory',
@@ -49,7 +49,7 @@ const upgrades = [
         parsedIncrease: parseFloat(document.querySelector(".factory-increase").innerHTML),
         level: document.querySelector(".factory-level"),
         tellerMultiplier: 1.025,
-        costMultiplier: 1.12,
+        costMultiplier: 1.10,
     },
 ]
 
