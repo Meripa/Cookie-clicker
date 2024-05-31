@@ -1,3 +1,5 @@
+import { defaultValues } from "./constants/defaultValues.js"
+
 let teller = document.querySelector('.teller-cost')
 let parsedTeller = parseFloat(teller.innerHTML)
 
@@ -52,6 +54,15 @@ const upgrades = [
         costMultiplier: 1.10,
     },
 ]
+
+function createUpgrades() {
+    const upgradesContainer = document.getElementById('upgrades-container')
+    const template = document.getElementById('upgrade-template').textContent
+
+    defaultValues.forEach((value) => {
+
+    })
+}
 
 function addCookie(event){
     teller.innerHTML = Math.round(parsedTeller += tpc);
@@ -160,3 +171,8 @@ function switchMode(){
         document.body.style.color = "black";                    
     }
 }
+
+window.addCookie = addCookie
+window.buyUpgrade = buyUpgrade
+window.save = save
+window.load = load

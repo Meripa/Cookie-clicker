@@ -14,6 +14,31 @@
                 </div>
                 
             </div>
+
+            <script id="upgrade-template" type="text/template">
+                <div class="upgrade" onclick="buyUpgrade('{{name}}')">
+                    <div class="left section">
+                        <img src="[{{image}}]" alt="" class="upgrade-img">
+                    </div>
+                    <div class="mid-section">
+                        <h4>{{name}}</h4>
+                        <div class="cost-info">
+                            <p class="cost-text"><span class="{{name}}-cost">{{cost}}</span></p>
+                            <img src="./assets/Teller1.jpg" class="teller1-image">
+                        </div>
+                    </div>
+                    <div class="right-section">Level <span class="{{name}}-level">0</span></div>
+
+                    <div class ="next-level-info">
+                        +<span class="{{name}}-increase">{{increase}}</span> gems <br />per click
+                    </div>                
+                </div>
+            </script>
+
+            <div class="right" id="upgrades-container">
+
+            </div>
+
             <div class="right">
                 <div class="upgrade" onclick="buyUpgrade('clicker')">
                     <div class="left section">
@@ -107,7 +132,7 @@
 
         <!-- <input class="button1" type="button" value= "Muuda tausta" onclick="switchMode()"/> -->
 
-        <script src="index.js"></script>
+        <script type="module" src="index.js"></script>
 
     </body>
 
