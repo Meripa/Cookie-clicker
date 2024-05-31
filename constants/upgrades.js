@@ -1,4 +1,4 @@
-import { defaultValues } from "./constants/defaultValues.js"
+import { defaultValues } from "./defaultValues.js"
 
 function createUpgrades() {
     const upgradesContainer = document.getElementById('upgrades-container')
