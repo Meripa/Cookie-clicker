@@ -1,5 +1,6 @@
 import { upgrades } from "./constants/upgrades.js"
 
+
 let teller = document.querySelector('.teller-cost')
 let parsedTeller = parseFloat(teller.innerHTML)
 
@@ -11,25 +12,6 @@ let tellerImgContainer = document.querySelector('.teller-img-container')
 let tpc = 1;
 
 let tps = 0;
-
-
-function createUpgrades() {
-    const upgradesContainer = document.getElementById('upgrades-container')
-    const template = document.getElementById('upgrade-template').textContent
-
-    defaultValues.forEach((obj) => {
-        let html = template;
-
-        Object.keys(obj).forEach((key) => {
-            const regex = new RegExp(`{{${key}}}`, 'g');
-            html = html.replace(regex, obj[key])
-        });
-
-        upgradesContainer.innerHTML += html
-    })
-}
-
-createUpgrades()
 
 function addCookie(event){
     teller.innerHTML = Math.round(parsedTeller += tpc);
