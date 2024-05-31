@@ -100,11 +100,41 @@ function buyUpgrade(upgrade) {
 }
 
 function save () {
+    localStorage.clear()
 
+    upgrades.map((upgrade) => {
+
+        const obj = JSON.stringify({
+            parsedLevel: parseFloat(upgrade.level.innerHTML),
+            parsedCost: upgrade.parsedCost,
+            parsedIncrease: upgrade.parsedIncrease
+        })
+
+        localStorage.setItem(upgrade.name, obj)
+    })
+
+    localStorage.setItem('tpc', JSON.stringify(tpc))
+    localStorage.setItem('tps', JSON.stringify(tpc))
+    localStorage.setItem('teller', JSON.stringify(parsedTeller))
 }
 
 function load () {
-    
+    upgrades.map((upgrade) => {
+        const savedValues = JSON.parse(localStorage.getItem(upgrade.name))
+
+        upgrade.parsedCost = savedValues.parsedCost
+        upgrade.parsedIncrease = savedValues.parsedIncrease
+
+        upgrade.level.innerHTML = savedValues.parsedLevel
+        upgrade.cost.innerHTML = Math.round(upgrade.parsedCost)
+        upgrade.increase.innerHTML = upgrade.parsedIncrease
+    })
+
+    tpc = JSON.parse(localStorage.getItem('tpc'))
+    tps = JSON.parse(localStorage.getItem('tps'))
+    parsedTeller = JSON.parse(localStorage.getItem('teller'))
+
+    teller.innerHTML = Math.round(parsedTeller)
 }
 
 setInterval(() => {
