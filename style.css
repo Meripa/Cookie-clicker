@@ -130,12 +130,12 @@ body{
     position: absolute;
     right: -105px;
     background-color: red;
-    height: 80px;
+    height: 90px;
     width: 100px;
     text-align: center;
     display: none;
-    font-size: 70%;
-    border: 4px solid white;
+    font-size: 15px;
+    border-radius: 2px;
 }
 
 .upgrade:hover .next-level-info {

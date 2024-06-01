@@ -1,4 +1,4 @@
-import { upgrades } from "./constants/upgrades.js"
+import { powerUpIntervals, upgrades } from "./constants/upgrades.js"
 
 
 let teller = document.querySelector('.teller-cost')
@@ -14,13 +14,12 @@ let tpc = 1;
 let tps = 0;
 
 const bgm = new Audio('/audio/bgm.mp3')
-bgm.volume = 0.02
-
-const clickingSound = new Audio('/audio.click.wav')
-
-const upgradeSound= new Audio('/audio.upgrade.mp3')
+bgm.volume = 0.00
 
 function addCookie(event){
+    const clickingSound = new Audio('/audio/click.wav')
+    clickingSound.play()
+
     teller.innerHTML = Math.round(parsedTeller += tpc);
 
     const x = event.offsetX
@@ -28,7 +27,7 @@ function addCookie(event){
 
     const div = document.createElement('div')
     div.innerHTML = `+${Math.round(tpc)}`
-    div.style.cssText = `color: red; margin-left: 410px; margin-top: 130px; position: absolute; top: ${y}px; left: ${x}px; font-size: 35px; pointer-events: none`
+    div.style.cssText = `color: white; position: absolute; top: ${y}px; left: ${x}px; font-size: 15px; pointer-events: none;`
     tellerImgContainer.appendChild(div)
 
     div.classList.add('fade-up')
@@ -43,25 +42,63 @@ const timeout = (div) => {
 }
 
 function buyUpgrade(upgrade) {
+
     const mu = upgrades.find((u) => {
         if (u.name === upgrade) return u
     })
 
+    const upgradeDiv = document.getElementById(`${mu.name}-upgrade`)
+    const nextLevelDiv = document.getElementById(`${mu.name}-next-level`)
+    const nextLevelP = document.getElementById(`${mu.name}-next-p`)
+
     if (parsedTeller >= mu.parsedCost) {
+        const upgradeSound= new Audio('/audio/upgrade.mp3')
+        upgradeSound.volume = 0.3
+        upgradeSound.play()
+
         teller.innerHTML = Math.round(parsedTeller -= mu.parsedCost);
+
+        let index = powerUpIntervals.indexOf(parseFloat(mu.level.innerHTML))
+
+        if ( index !== -1) {
+            upgradeDiv.style.cssText = `border-color: white`;
+            nextLevelDiv.style.cssText = `background-color: #5A5959; font-weight: normal`;
+            mu.cost.innerHTML = Math.round(mu.parsedCost *= mu.costMultiplier)
+
+            if ( mu.name === 'clicker' ) {
+                tpc *= mu.powerUps[index].multiplier
+                nextLevelP.innerHTML = `+${mu.parsedIncrease} gems per click` 
+              } else {
+                tps -= mu.power
+                mu.power *= mu.powerUps[index].multiplier
+                tps += mu.power
+                nextLevelP.innerHTML = `+${mu.parsedIncrease} gems per second`
+              }
+        }
 
         mu.level.innerHTML ++
 
-        mu.parsedIncrease = parseFloat((mu.parsedIncrease * mu.tellerMultiplier).toFixed(2))
-        mu.increase.innerHTML = mu.parsedIncrease
+        index = powerUpIntervals.indexOf(parseFloat(mu.level.innerHTML))
 
-        mu.parsedCost *= mu.costMultiplier;
-        mu.cost.innerHTML = Math.round(mu.parsedCost)
+        if ( index !== -1 ) {
+            upgradeDiv.style.cssText = `border-color: orange`;
+            nextLevelDiv.style.cssText = `background-color: #CC4500; font-weight: bold`;
+            nextLevelP.innerText = mu.powerUps[index].description
 
-        if (mu.name === 'clicker') {
-            tpc += mu.parsedIncrease
+            mu.cost.innerHTML = Math.round(mu.parsedCost * 2.5 * 1.004 ** parseFloat(mu.level.innerHTML))
         } else {
-            tps += mu.parsedIncrease
+            mu.cost.innerHTML = Math.round(mu.parsedCost *= mu.costMultiplier)
+            mu.parsedIncrease = parseFloat((mu.parsedIncrease * mu.tellerMultiplier).toFixed(2))
+            
+            if ( mu.name === 'clicker' ) nextLevelP.innerHTML = `+${mu.parsedIncrease} gems per click` 
+            else nextLevelP.innerHTML = `+${mu.parsedIncrease} gems per second`
+        }
+
+        if ( mu.name === 'clicker' ) tpc += mu.parsedIncrease
+        else {
+            tps -=mu.power
+            mu.power += mu.parsedIncrease
+            tps += mu.power
         }
     }
 }
