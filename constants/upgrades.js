@@ -59,4 +59,14 @@ export const upgrades = [
         tellerMultiplier: 1.025,
         costMultiplier: 1.10,
     },
+    {
+        name: 'viiner',
+        cost: document.querySelector(".viiner-cost"),
+        parsedCost: parseFloat(document.querySelector(".viiner-cost").innerHTML),
+        increase: document.querySelector(".viiner-increase"),
+        parsedIncrease: parseFloat(document.querySelector(".viiner-increase").innerHTML),
+        level: document.querySelector(".viiner-level"),
+        tellerMultiplier: 1.025,
+        costMultiplier: 1.10,
+    },
 ]
