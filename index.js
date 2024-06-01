@@ -13,12 +13,12 @@ let tpc = 1;
 
 let tps = 0;
 
-const bgm = new Audio('/assets/audio/bgm.mp3')
+const bgm = new Audio('/audio/bgm.mp3')
 bgm.volume = 0.2
 
-const clickingSound = new Audio('/assets/audio.click.wav')
+const clickingSound = new Audio('/audio.click.wav')
 
-const upgradeSound= new Audio('/assets/audio.upgrade.mp3')
+const upgradeSound= new Audio('/audio.upgrade.mp3')
 
 function addCookie(event){
     teller.innerHTML = Math.round(parsedTeller += tpc);
