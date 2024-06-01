@@ -3,5 +3,5 @@ export const defaultValues = [
     {name: 'pickaxe', image:'./assets/pickaxe.png', cost: 60, increase: 4},
     {name: 'miner', image:'./assets/miner.png', cost: 380, increase: 16},
     {name: 'factory', image:'./assets/factory.png', cost: 3111, increase: 82},
-    {name: 'viiner', image:'./assets/viiner.png', cost: 5111, increase: 8200},
+    {name: 'viiner', image:'./assets/vinku.png', cost: 5111, increase: 8200}
 ]
