@@ -14,7 +14,7 @@ let tpc = 1;
 let tps = 0;
 
 const bgm = new Audio('/audio/bgm.mp3')
-bgm.volume = 0.2
+bgm.volume = 0.02
 
 const clickingSound = new Audio('/audio.click.wav')
 
