@@ -4,24 +4,20 @@
 
 /*This is for main body so I can change everything*/
 body{
-    top: 100px;
- 
-    font-family: "Quicksand", sans-serif;
-    background-color: rgb(36, 36, 36);
-    text-align: center;
-    font-size: 200%;
-    user-select: none;
-    position: relative;
-    text-decoration: none;
+    background-color: rgb(109, 108, 108);
     padding: 0;
+    margin: 0;
+    text-decoration: none;
     display: grid;
     place-items: center;
+    user-select: none;
+    position: relative;
+    font-family: "Quicksand", sans-serif;
 }
 
 .main {
     display: flex;
-    gap: 300px;
-    
+    gap: 200px;
 }
 
 .left {
@@ -68,6 +64,8 @@ body{
 .teller-image {
  
     margin-top: 50px;
+    width: 250px;
+    height: 200px;
 }
 
 .teller-image:hover {

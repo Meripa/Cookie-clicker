@@ -16,14 +16,14 @@ let tps = 0;
 const bgm = new Audio('/audio/bgm.mp3')
 bgm.volume = 0.00
 
-function addCookie(event){
+function addCookie(event) {
     const clickingSound = new Audio('/audio/click.wav')
     clickingSound.play()
 
     teller.innerHTML = Math.round(parsedTeller += tpc);
 
-    const x = event.offsetX
-    const y = event.offsetY
+    const x = event.clientX
+    const y = event.clientY
 
     const div = document.createElement('div')
     div.innerHTML = `+${Math.round(tpc)}`
