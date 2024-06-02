@@ -9,6 +9,9 @@ let tpsText = document.getElementById("tps-text")
 
 let tellerImgContainer = document.querySelector('.teller-img-container')
 
+let upgradesNavButton = document.getElementById('upgrades-nav-button')
+let skillsNavButton = document.getElementById('skill-nav-button')
+
 let tpc = 1;
 
 let tps = 0;
@@ -150,7 +153,21 @@ bgm.play()
 }, 100)
 
 
+skillsNavButton.addEventListener("click", function() {
+    const upgradeContainers = document.querySelectorAll(".upgrade")
 
+    upgradeContainers.forEach((container) => {
+        container.style.display = "none"
+    })
+})
+
+upgradesNavButton.addEventListener("click", function() {
+    const upgradeContainers = document.querySelectorAll(".upgrade")
+
+    upgradeContainers.forEach((container) => {
+        container.style.display = "flex"
+    })
+})
 
 var nightMode = false;
 

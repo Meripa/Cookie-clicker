@@ -1,10 +1,10 @@
-import { defaultValues } from "./defaultValues.js"
+import { defaultUpgradeValues } from "./defaultValues.js"
 
 function createUpgrades() {
     const upgradesContainer = document.getElementById('upgrades-container')
     const template = document.getElementById('upgrade-template').textContent
 
-    defaultValues.forEach((obj) => {
+    defaultUpgradeValues.forEach((obj) => {
         let html = template;
 
         Object.keys(obj).forEach((key) => {
@@ -95,7 +95,7 @@ export const upgrades = [
         power: 0,
         tellerMultiplier: 1.025,
         costMultiplier: 1.10,
-    },
+    }, 
     {
         name: 'viiner',
         cost: document.querySelector(".viiner-cost"),
