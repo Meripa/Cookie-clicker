@@ -51,8 +51,17 @@ body{
     padding-top: 15px;
 }
 
+.right-navbar>div:hover {
+    opacity: 0.85;
+    cursor: pointer;
+}
+
 .right-navbar>:first-child {
     background: blue;
+}
+
+.right-navbar>:nth-child(2) {
+    background: purple;
 }
 
 #upgrades-container {
@@ -116,9 +125,19 @@ body{
 
 }
 
+
 .upgrade-img {
     width: 55px;
 }
+
+.type-skill {
+    display: none;
+}
+
+.type-artifact {
+    display: none;
+}
+
 
 .teller-image-container {
     position: relative;

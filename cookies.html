@@ -21,7 +21,7 @@
             </div>
 
             <script id="upgrade-template" type="text/template">
-                <div class="upgrade" onclick="buyUpgrade('{{name}}')" id="{{name}}-upgrade">
+                <div class="upgrade type-{{type}}" onclick="buyUpgrade('{{name}}')" id="{{name}}-upgrade">
                     <div class="left section">
                         <img src="{{image}}" alt="" class="upgrade-img">
                     </div>
@@ -45,6 +45,7 @@
                 <div class="right-navbar">
                     <div id="upgrades-nav-button">Upgrade</div>
                     <div id="skill-nav-button">Skills</div>
+                    <div id="artifacts--nav-button">Artifacts</div>
                 </div>
                 
                 <div id="upgrades-container"></div>
@@ -72,6 +73,7 @@
 
         <script type="module" src="index.js"></script>
         <script type="module" src="constants/skills.js"></script>
+        <script type="module" src="constants/artifacts.js"></script>
 
     </body>
 

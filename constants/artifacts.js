@@ -1,10 +1,10 @@
-import { defaultSkillValues } from "./defaultValues.js"
+import { defaultArtifactValues } from "./defaultValues";
 
 function createUpgrades() {
     const upgradesContainer = document.getElementById('upgrades-container')
     const template = document.getElementById('upgrade-template').textContent
 
-    defaultSkillValues.forEach((obj) => {
+    defaultArtifactValues.forEach((obj) => {
         let html = template;
 
         Object.keys(obj).forEach((key) => {
