@@ -1,4 +1,5 @@
 import { powerUpIntervals, upgrades } from "./constants/upgrades.js"
+import { defaultSkillValues, defaultUpgradeValues } from "./constants/defaultValues.js"
 
 
 let teller = document.querySelector('.teller-cost')
@@ -11,6 +12,9 @@ let tellerImgContainer = document.querySelector('.teller-img-container')
 
 let upgradesNavButton = document.getElementById('upgrades-nav-button')
 let skillsNavButton = document.getElementById('skill-nav-button')
+let artifactsNavButton = document.getElementById('artifacts-nav-button')
+
+let prestigeButton = document.querySelector(".prestige-button")
 
 let tpc = 1;
 
@@ -144,12 +148,30 @@ function load () {
     teller.innerHTML = Math.round(parsedTeller)
 }
 
+function prestige() {
+    upgrades.map((upgrade) => {
+    const mu = defaultUpgradeValues.find((u) => { if (upgrade.name === u.name) return u})
+
+        upgrade.parsedCost = mu.cost
+        upgrade.Increase = mu.increase
+
+        upgrade.level.innerHTML = 0
+        upgrade.cost.innerHTML = mu.cost
+        upgrade.increase.innerHTML = mu.increase
+    })
+}
 setInterval(() => {
 parsedTeller += tps / 10
 teller.innerHTML = Math.round(parsedTeller)
 tpcText.innerHTML = Math.round(tpc)
 tpsText.innerHTML = Math.round(tps);
 bgm.play()
+
+if (parsedTeller >= 1_000_000) {
+    prestigeButton.style.display = "block"
+} else {
+    prestigeButton.style.display = "none"
+}
 }, 100)
 
 
@@ -157,8 +179,8 @@ skillsNavButton.addEventListener("click", function() {
     const upgradeContainers = document.querySelectorAll(".upgrade")
 
     upgradeContainers.forEach((container) => {
-        if (container.classList.contains('type-upgrade')) container.style.display = "none"
-        else if (container.classList.contains('type-skill')) container.style.display = "flex"    
+        if ( container.classList.contains('type-skill')) container.style.display = "flex"
+        else container.style.display = "none"    
     })
 })
 
@@ -166,8 +188,19 @@ upgradesNavButton.addEventListener("click", function() {
     const upgradeContainers = document.querySelectorAll(".upgrade")
 
     upgradeContainers.forEach((container) => {
+
         if (container.classList.contains('type-upgrade')) container.style.display = "flex"
-        else if (container.classList.contains('type-skill')) container.style.display = "none"    
+        else container.style.display = "none"   
+    })
+})
+
+artifactsNavButton.addEventListener("click", function() {
+    const upgradeContainers = document.querySelectorAll(".upgrade")
+
+    upgradeContainers.forEach((container) => {
+
+        if (container.classList.contains('type-artifact')) container.style.display = "flex"
+        else container.style.display = "none"   
     })
 })
 
@@ -189,3 +222,4 @@ window.addCookie = addCookie
 window.buyUpgrade = buyUpgrade
 window.save = save
 window.load = load
+window.prestige = prestige

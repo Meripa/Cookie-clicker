@@ -8,7 +8,7 @@
     <body>
         <div class="main">
             <div class="left">
-                <p>Telleri REP <br /> <span class="teller-cost red-text">50000</span></p>
+                <p>Telleri REP <br /> <span class="teller-cost red-text">50000000</span></p>
                 <div class="teller-img-container">
                     <img 
                         src="./assets/Teller1.jpg"
@@ -45,7 +45,7 @@
                 <div class="right-navbar">
                     <div id="upgrades-nav-button">Upgrade</div>
                     <div id="skill-nav-button">Skills</div>
-                    <div id="artifacts--nav-button">Artifacts</div>
+                    <div id="artifacts-nav-button">Artifacts</div>
                 </div>
                 
                 <div id="upgrades-container"></div>
@@ -58,6 +58,7 @@
                 </div>
             </div>
             <div class="util-buttons">
+                <button class="util-button prestige-button" onclick="prestige()">Prestige</button>
                 <button class="util-button" onclick="save()">
                     Save
                 </button>
@@ -66,6 +67,9 @@
                 </button>
             </div>
 
+            <div class="relic">
+                Relic: <span id="relic">0</span>
+            </div>
         </div>
 
 

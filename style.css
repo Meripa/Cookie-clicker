@@ -19,7 +19,6 @@ body{
 .main {
     display: flex;
     gap: 200px;
-    margin-bottom: 100px;
 }
 
 .left {
@@ -205,7 +204,7 @@ body{
     display: flex;
     gap: 10px;
     position: absolute;
-    top: -70px;
+    
     right: 15px;
 }
 
@@ -217,10 +216,21 @@ body{
     border-radius: 6px;
 }
 
+.relic {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    font-weight: 600;
+}
+
 .util-button:hover {
     opacity: 0.7;
     cursor: pointer;
 }
+
+
 
 .fade-up {
     animation: fade-up 1s;
