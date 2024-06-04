@@ -1,4 +1,4 @@
-import { defaultArtifactValues } from "./defaultValues";
+import { defaultArtifactValues } from "./defaultValues.js";
 
 function createUpgrades() {
     const upgradesContainer = document.getElementById('upgrades-container')

@@ -1,5 +1,5 @@
-import { powerUpIntervals, upgrades } from "./constants/upgrades.js"
-import { defaultSkillValues, defaultUpgradeValues } from "./constants/defaultValues.js"
+import { powerUpIntervals, upgrades } from "./constants/upgrades.js";
+import { defaultSkillValues, defaultUpgradeValues } from "./constants/defaultValues.js";
 
 
 let teller = document.querySelector('.teller-cost')
@@ -20,8 +20,8 @@ let tpc = 1;
 
 let tps = 0;
 
-const bgm = new Audio('/audio/bgm.mp3')
-bgm.volume = 0.00
+/* const bgm = new Audio('/audio/bgm.mp3')
+bgm.volume = 0.00 */
 
 function addCookie(event) {
     const clickingSound = new Audio('/audio/click.wav')
@@ -165,7 +165,7 @@ parsedTeller += tps / 10
 teller.innerHTML = Math.round(parsedTeller)
 tpcText.innerHTML = Math.round(tpc)
 tpsText.innerHTML = Math.round(tps);
-bgm.play()
+/* bgm.play() */
 
 if (parsedTeller >= 1_000_000) {
     prestigeButton.style.display = "block"
